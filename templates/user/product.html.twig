@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{project_name}} | Dashboard{% endblock %}
+{% block front_nav_right_section %}{% include 'includes/usermenu.html.twig' %}{% endblock %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div class="container">
+    <div class="row">
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="jumbotron">
+                        <div class="col-sm-8">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                {# <strong class="d-inline-block mb-2 text-primary">World</strong> #}
+                                <div class="mb-1 text-muted">{{products.getCreatedAt()|date(date_format)}}</div>
+                                
+                                <p class="card-text mb-auto">{{products.getDescription()|striptags}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"><img data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="max-width: 100%;" src="{{asset('uploads/posts/')}}{{ products.getProductThumbail()}}" data-holder-rendered="true"></div>
+                        <br>
+                        <ul class="card-text mb-100px">
+                            <li>Price: {{ products.getPrice() }}</li>
+                            <li>Weight: {{ products.getWeight() }}</li>
+                            <li>Flavour: {{ products.getFlavour() }}</li>
+                            <li>Product Type: {{ products.getProductType() }}</li>
+                            <li>Sugar: {{ products.getSuger() }}</li>
+                            <li>Fat: {{ products.getFat() }}</li>
+                            <li>Delivery Type: {{ products.getDeliveryType() }}</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,4 @@
+# lists:
+#   type: rest
+#   prefix: api
+#   controller: App\Controller\ProductApiController

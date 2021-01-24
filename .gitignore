@@ -1,0 +1,24 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/public/uploads/
+/var/
+/vendor/
+/src/Controller/Admin/PostCrudController.php
+/src/Entity/Post.php
+/src/Repository/PostRepository.php
+/src/Form/PostType.php
+/templates/Post
+/src/Controller/NotificationController.txt
+notes
+PostType.php
+
+###< symfony/framework-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

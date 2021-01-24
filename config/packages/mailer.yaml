@@ -1,0 +1,6 @@
+framework:
+    mailer:
+        dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'dixitsarmistha7@gmail.com'
+            recipients: ['kajalkhanna803@gmail.com']

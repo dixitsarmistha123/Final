@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{project_name}} | Dashboard{% endblock %}
+{% block front_nav_right_section %}{% include 'includes/usermenu.html.twig' %}{% endblock %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div class="container">
+    <div class="row">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-6">
+                    <div class="jumbotron">
+                        <div class="col-sm-8">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                {# <strong class="d-inline-block mb-2 text-primary">World</strong> #}
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="{{path('show_product', {id: product.getId()})}}">{{product.getName()}}</a>
+                                </h3>
+                                <div class="mb-1 text-muted">{{product.getCreatedAt()|date(date_format)}}</div>
+                                <p class="card-text mb-auto">{{product.getDescription()|striptags|slice(0, 50)}}</p>
+                                <a href="{{path('show_product', {id: product.getId()})}}">Continue reading</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"><img data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="max-width: 100%;" src="{{asset('uploads/posts/')}}{{ product.getProductThumbail()}}" data-holder-rendered="true"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+{% block javascripts %}{% endblock %}
